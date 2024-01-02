@@ -87,7 +87,7 @@
                 <!--Tabs-->
 
                 <Fluent:RibbonTabItem Header="Home">
-                    
+
                     <!--Shapes-->
                     <Fluent:RibbonGroupBox Header="Shapes" Background="#F9F9F9" >
                         <!--Add shapes' icon here-->
@@ -233,14 +233,14 @@
                         </StackPanel>
 
                     </Fluent:RibbonGroupBox>
-                    
+
                 </Fluent:RibbonTabItem>
 
 
             </Fluent:Ribbon>
 
             <!--Drawing area-->
-            <Grid>
+            <Grid Background="#F3F3F3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="191*"/>
                     <ColumnDefinition Width="205*"/>
@@ -250,12 +250,10 @@
                 <Border Background="Transparent" IsHitTestVisible="True" MouseDown="drawingArea_MouseDown" MouseUp="drawingArea_MouseUp"
                 MouseMove="drawingArea_MouseMove" MouseEnter="drawingArea_MouseEnter" MouseLeave="drawingArea_MouseLeave" Grid.ColumnSpan="4"/>
 
-                <Grid Height="560" Width="1190" Grid.ColumnSpan="4" Background="#F3F3F3">
-                    <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="#ccc" Height="500" Width="1130">
-                        
-                    <Canvas Name="drawingArea" IsHitTestVisible="False" ClipToBounds="True" Background="White" />
-                    </Border>
-                </Grid>
+                <Border Grid.Column="0" Grid.Row="0"  Margin="20"  BorderThickness="1" BorderBrush="#ccc" Height="500" Width="1130">
+                    <Canvas Name="drawingArea" IsHitTestVisible="False"  ClipToBounds="True" Background="White" Grid.ColumnSpan="4" />
+                </Border>
+
             </Grid>
         </StackPanel>
     </StackPanel>
