@@ -48,15 +48,15 @@
                     </Fluent:Button.LargeIcon>
                 </Fluent:Button>
 
-                <Fluent:Button Name="copyButton" Header="Copy" Padding="4,4,4,0" Click="copyButton_Click">
+                <Fluent:Button Name="copyButton" Header="Copy" Padding="4,4,4,0" Click="copyButton_Click" Height="68" VerticalAlignment="Top">
                     <Fluent:Button.LargeIcon>
                         <Image Source="Images/copy.png"  RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </Fluent:Button.LargeIcon>
                 </Fluent:Button>
             </Fluent:RibbonGroupBox>
         </StackPanel>
-        <StackPanel   >
-            <Fluent:Ribbon  >
+        <StackPanel>
+            <Fluent:Ribbon >
                 <Fluent:Ribbon.QuickAccessItems >
                     <Fluent:QuickAccessMenuItem Icon="Images/undo.png" RenderOptions.BitmapScalingMode="HighQuality" IsChecked="true" >
                         <Fluent:Button Icon="Images/undo.png" RenderOptions.BitmapScalingMode="HighQuality" Name="undoButton" Header="Undo" Padding="4,4,4,0" 
@@ -68,21 +68,26 @@
                     </Fluent:QuickAccessMenuItem>
                 </Fluent:Ribbon.QuickAccessItems>
                 <!--Backstage-->
-                <Fluent:Ribbon.Menu>
-                    <Fluent:ApplicationMenu Header="File">
-                        <Fluent:MenuItem Header="New" Icon="Images/new_file.png" Name="createNewButton" Click="createNewButton_Click"
-                                     RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Fluent:MenuItem Header="Open" Icon="Images/open.png" Name="openFileButton" Click="openFileButton_Click"
-                                     RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Fluent:MenuItem Header="Save" Icon="Images/save.png" Name="saveFileButton" Click="saveFileButton_Click"
-                                     RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Fluent:MenuItem Header="Import" Icon="Images/import.png" Name="importButton" Click="importButton_Click"
-                                     RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <Fluent:MenuItem Header="Export" Icon="Images/export.png" Name="exportButton" Click="exportButton_Click"
-                                     RenderOptions.BitmapScalingMode="HighQuality"/>
+                
+                
 
+                <Fluent:Ribbon.Menu>
+                    <Fluent:ApplicationMenu Header="File" RightPaneWidth="0" MaxWidth="200">
+                        <StackPanel>
+                            <Fluent:MenuItem Header="New" Icon="Images/new_file.png" Width="200" Name="createNewButton" Click="createNewButton_Click"
+RenderOptions.BitmapScalingMode="HighQuality"/>
+                            <Fluent:MenuItem Header="Open" Icon="Images/open.png" Width="200" Name="openFileButton" Click="openFileButton_Click"
+RenderOptions.BitmapScalingMode="HighQuality"/>
+                            <Fluent:MenuItem Header="Save" Icon="Images/save.png" Width="200" Name="saveFileButton" Click="saveFileButton_Click"
+RenderOptions.BitmapScalingMode="HighQuality"/>
+                            <Fluent:MenuItem Header="Import" Icon="Images/import.png" Width="200" Name="importButton" Click="importButton_Click"
+RenderOptions.BitmapScalingMode="HighQuality"/>
+                            <Fluent:MenuItem Header="Export" Icon="Images/export.png" Width="200" Name="exportButton" Click="exportButton_Click"
+RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </StackPanel>
                     </Fluent:ApplicationMenu>
                 </Fluent:Ribbon.Menu>
+                
 
                 <!--Tabs-->
 
@@ -118,7 +123,7 @@
                     <Fluent:RibbonGroupBox Header="Style" Background="#F9F9F9">
                         <StackPanel Orientation="Vertical" Margin="4,4,4,0" HorizontalAlignment="Center">
                             <Image Source="Images/thickness.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="5"
-                               Width="40" HorizontalAlignment="Center"/>
+                               Width="27" HorizontalAlignment="Center" Height="32"/>
 
                             <Fluent:ComboBox x:Name="sizeComboBox" Height="20" IsEditable="False" HorizontalAlignment="Center"
                                          SelectionChanged="sizeComboBox_SelectionChanged" Margin="0,8,0,0">
@@ -171,58 +176,126 @@
                                 </Grid.RowDefinitions>
 
 
-                                <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
-                                                            Width="28" Height="28"/>
+       
                                 <Button Name="btnBasicBlack" Grid.Column="0" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Black" Click="btnBasicBlack_Click"></Button>
+                                        Background="Black" Click="btnBasicBlack_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                               
 
-
-                                <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
-                                                            Width="28" Height="28"/>
                                 <Button Name="btnBasicGray" Grid.Column="1" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Gray" Click="btnBasicGray_Click"></Button>
-
-                                <Border Grid.Column="2" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
-                                                        Width="28" Height="28"/>
-                                <Button Name="btnBasicRed" Grid.Column="2" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Red" Click="btnBasicRed_Click"></Button>
-
-                                <Border Grid.Column="3" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
-                                                    Width="28" Height="28"/>
-                                <Button Name="btnBasicOrange" Grid.Column="3" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Orange" Click="btnBasicOrange_Click"></Button>
-
-                                <Border Grid.Column="4" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
-                                                        Width="28" Height="28"/>
-                                <Button Name="btnBasicYellow" Grid.Column="4" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                            Background="Yellow" Click="btnBasicYellow_Click"></Button>
-
-
-                                <Border Grid.Column="0" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
-                                                Width="28" Height="28"/>
-                                <Button Name="btnBasicBlue" Grid.Column="0" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Blue" Click="btnBasicBlue_Click"></Button>
-
-                                <Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
-                                                Width="28" Height="28"/>
-                                <Button Name="btnBasicGreen" Grid.Column="1" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Green" Click="btnBasicGreen_Click"></Button>
-
-                                <Border Grid.Column="2" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
-                                            Width="28" Height="28"/>
-                                <Button Name="btnBasicPurple" Grid.Column="2" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                                Background="Purple" Click="btnBasicPurple_Click">
+                                        Background="Gray" Click="btnBasicGray_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
                                 </Button>
 
-                                <Border Grid.Column="3" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
-                                        Width="28" Height="28"/>
-                                <Button Name="btnBasicPink" Grid.Column="3" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                        Background="Pink" Click="btnBasicPink_Click"></Button>
+                               
+                                <Button Name="btnBasicRed" Grid.Column="2" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                        Background="Red" Click="btnBasicRed_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
 
-                                <Border Grid.Column="4" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
-                                            Width="28" Height="28"/>
+                                
+                                <Button Name="btnBasicOrange" Grid.Column="3" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                        Background="Orange" Click="btnBasicOrange_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                              
+                                <Button Name="btnBasicYellow" Grid.Column="4" Grid.Row="0" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                            Background="Yellow" Click="btnBasicYellow_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+
+                         
+                                <Button Name="btnBasicBlue" Grid.Column="0" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                        Background="Blue" Click="btnBasicBlue_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                
+                                <Button Name="btnBasicGreen" Grid.Column="1" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                        Background="Green" Click="btnBasicGreen_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                
+                                <Button Name="btnBasicPurple" Grid.Column="2" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                                Background="Purple" Click="btnBasicPurple_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                
+                                <Button Name="btnBasicPink" Grid.Column="3" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
+                                        Background="Pink" Click="btnBasicPink_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+
                                 <Button Name="btnBasicBrown" Grid.Column="4" Grid.Row="1" Width="25" Height="25" Style="{StaticResource DisableMouseOver}"
-                                            Background="Brown" Click="btnBasicBrown_Click"></Button>
+                                            Background="Brown" Click="btnBasicBrown_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="12.5" BorderThickness="1" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
                             </Grid>
 
                             <Fluent:Button Name="editColorButton" Header="Edit Colors" Click="editColorButton_Click" Padding="4,4,4,0">
